@@ -29,7 +29,6 @@ kind: Service
 apiVersion: v1
 metadata:
   name: mysql
-  namespace: expense
 spec:
   selector:
     project: mysql
