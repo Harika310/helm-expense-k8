@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: harika402/mysql:{{ .values.deployment.imageVersion }}
+        image: harika402/mysql:{{ .Values.deployment.imageVersion }}
 
 ---
 kind: Service
