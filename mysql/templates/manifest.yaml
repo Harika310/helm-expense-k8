@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
-  #namespace: expense
+  namespace: expense
   labels:
     app: mysql
     tier: db
@@ -30,7 +30,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: mysql
-  #namespace: expense
+  namespace: expense
 spec:
   selector:
     project: mysql
