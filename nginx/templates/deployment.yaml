@@ -1,22 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+   #  This name will become the basis for the ReplicaSets and Pods which are created later.
   name: nginx
   labels:
     app: nginx
     tier: frontend
 spec:
+  # The Deployment creates a ReplicaSet that creates three replicated Pods, indicated by the .spec.replicas field
   # modify replicas according to your case
   replicas: {{ .Values.deployment.replicas }}
+  # The .spec.selector field defines how the created ReplicaSet finds which Pods to manage.
   selector:
+   # The .spec.selector.matchLabels field is a map of {key,value} pairs. defined in the pod template.
     matchLabels:
       tier: frontend
       app: nginx
   template:
     metadata:
+      # The Pods are labeled app: nginx using the .metadata.labels field.
       labels:
         tier: frontend
         app: nginx
+    # The Pod template's specification, or .template.spec field, indicates that the Pods run one container, nginx, which runs the nginx Docker Hub image at version
     spec:
       containers:
       - name: nginx
